@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Futurix</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    
+    body {
+        font-family: 'Orbitron', sans-serif;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .background-div {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        background-image: url('assets/circuit.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        z-index: -3;
+    }
+
+    .black-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3); 
+        z-index: -2;
+    }
+
+    .black-overlay-2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+    }
+
+    .neon-text {
+        color: #e7e3e8;
+        text-shadow: 0 0 5px #d946ef, 0 0 10px #d946ef, 0 0 20px #d946ef, 0 0 40px #d946ef;
+    }
+
+    .neon-button {
+        background: linear-gradient(90deg, #d946ef, #8b5cf6);
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 9999px;
+        text-shadow: 0 0 5px #d946ef, 0 0 10px #d946ef, 0 0 20px #d946ef, 0 0 40px #d946ef;
+    }
+
+    .neon-button:hover {
+        background: linear-gradient(90deg, #8b5cf6, #d946ef);
+    }
+
+    .navbar-logo {
+        height: 50px;
+    }
+  </style>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
+      const blackOverlay = document.querySelector('.black-overlay');
+      const blackOverlay2 = document.querySelector('.black-overlay-2');
+
+      if (scrollPosition > 100) {
+        blackOverlay.style.opacity = '0.6';
+        blackOverlay2.style.opacity = '0.7';
+      } else {
+        blackOverlay.style.opacity = '0.3';
+        blackOverlay2.style.opacity = '0.4';
+      }
+    });
+
+    function toggleMenu() {
+      const menu = document.querySelector('#mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen">
+
+  <div class="background-div"></div>
+  <div class="black-overlay"></div>
+  <div class="black-overlay-2"></div>
+
+  <!-- Navbar -->
+  <header class="w-full fixed top-0 bg-black bg-opacity-80 p-4">
+    <div class="flex justify-between items-center max-w-7xl mx-auto">
+      <!-- Replace FUTURIX text with logo -->
+      <img src="assets/file.png" alt="Futurix Logo" class="navbar-logo">
+      <button class="text-white sm:hidden focus:outline-none" onclick="toggleMenu()">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+      <nav class="hidden sm:flex space-x-8 text-lg">
+        <a class="text-white" href="index.html">HOME</a>
+        <a class="text-white" href="events.html">EVENTS</a>
+        <a class="text-white" href="projects.html">PROJECTS</a>
+        <a class="text-white" href="team.html">TEAM</a>
+        <a class="text-white" href="recruitments.html">RECRUITMENTS</a>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="sm:hidden flex flex-col space-y-4 mt-4 text-center hidden">
+        <a class="text-white" href="index.html">HOME</a>
+        <a class="text-white" href="events.html">EVENTS</a>
+        <a class="text-white" href="projects.html">PROJECTS</a>
+        <a class="text-white" href="team.html">TEAM</a>
+        <a class="text-white" href="recruitments.html">RECRUITMENTS</a>
+    </nav>
+  </header>
+
+  <!-- Content Section -->
+  <main class="flex flex-col items-center text-center mt-24 bg-black bg-opacity-50 p-8 rounded-lg w-11/12 sm:w-9/12 md:w-7/12 lg:w-6/12 xl:w-4/12">
+    <h1 class="text-4xl md:text-6xl neon-text">FUTURIX</h1>
+    <p class="mt-4 max-w-md text-gray-400 text-sm sm:text-base md:text-lg">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur sagittis, nisl nunc.
+    </p>
+    <div class="mt-4 w-full">
+      <input class="p-2 rounded-full w-full bg-gray-800 text-white" placeholder="Search..." type="text"/>
+    </div>
+    <button class="neon-button mt-4 w-full sm:w-auto">CONTACT US</button>
+  </main>
+
+</body>
+</html>
